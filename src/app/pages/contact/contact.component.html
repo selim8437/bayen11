@@ -1,0 +1,69 @@
+<html>
+<head>
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Contact Us</h1>
+  <p>Get in Touch with Bayene </p>
+  <h2>Contact Information</h2>
+  <p>If you have any questions or require further information, please don't hesitate to contact us:</p>
+  <address>
+      <strong>Bayene </strong><br>
+      123 Tunis Street<br>
+      Tunis, Tunisia<br>
+      Phone: +216 123456789<br>
+      Email: info@transitaire-tunisia.com<br>
+  </address>
+  <h2>Contact Form</h2>
+  <p>Alternatively, you can send us a message using the contact form below:</p>
+<form #f="ngForm" (ngSubmit)="onClickSubmit(f.value)">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Name">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="LastName">
+    </div>
+  <div class="wrapper">
+    <ngx-intl-tel-input
+      [cssClass]="'custom'"
+      [preferredCountries]="preferredCountries"
+      [enableAutoCountrySelect]="true"
+      [enablePlaceholder]="true"
+      [searchCountryFlag]="true"
+      [searchCountryField]="[
+        SearchCountryField.Iso2,
+        SearchCountryField.Name
+      ]"
+      [selectFirstCountry]="false"
+      [selectedCountryISO]="CountryISO.Tunisia"
+      [maxLength]="15"
+      [phoneValidation]="true"
+      [separateDialCode]="separateDialCode"
+      [numberFormat]="PhoneNumberFormat.National"
+      name="phone"
+      formControlName="phone"
+    >
+    </ngx-intl-tel-input>
+    <button type ="ngSubmit"></button>
+  </div>
+  <div>
+
+  </div>
+  </div>
+</form>
+
+</div>
+</body>
+
+</html>
