@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "serve": "concurrently \"ng serve\" \"server\\node_modules\\.bin\\ts-node-dev server\\server.js\""
   },
   "private": true,
   "dependencies": {
@@ -21,11 +22,13 @@
     "@ng-bootstrap/ng-bootstrap": "^15.1.1",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
+    "express": "^4.18.2",
     "google-libphonenumber": "^3.2.33",
     "intl-tel-input": "^17.0.3",
     "ngx-bootstrap": "^11.0.2",
     "ngx-intl-tel-input": "^3.2.0",
     "rxjs": "~7.8.0",
+    "ts-node": "^10.9.1",
     "tslib": "^2.3.0",
     "yarn": "^1.22.19",
     "zone.js": "~0.13.0"

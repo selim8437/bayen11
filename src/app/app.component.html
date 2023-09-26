@@ -2,7 +2,9 @@
 <html lang="en">
    
     <body>
-        <app-header>a</app-header>
+     <div *ngFor="let message of messages | async">{{message.message}}</div>
+
+        <app-header></app-header>
         <div class="component-container"><router-outlet></router-outlet></div>
         <!-- Footer-->
        
