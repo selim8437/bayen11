@@ -21,19 +21,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelIn
   </address>
   <h2>Contact Form</h2>
   <p>Alternatively, you can send us a message using the contact form below:</p>
-<form #f="ngForm" (ngSubmit)="onClickSubmit(f.value)">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Name">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="LastName">
-    </div>
+
+<form #fa="ngForm" [formGroup]="phoneForm">
   <div class="wrapper">
     <ngx-intl-tel-input
       [cssClass]="'custom'"
@@ -55,15 +44,32 @@ href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelIn
       formControlName="phone"
     >
     </ngx-intl-tel-input>
-    <button type ="ngSubmit"></button>
-  </div>
-  <div>
-
-  </div>
   </div>
 </form>
+  <form [formGroup]="clientForm"(ngSubmit)='afficherTout()'>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="email" formControlName="email" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control"  formControlName="firstName"placeholder="firstName">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" formControlName="Name" placeholder="Name">
+    </div>
+    <div class="col">
+      <textarea  class="form-control" formControlName="message" placeholder="message"></textarea>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-dark"  [disabled]='!clientForm.valid'>Submit</button>
 
-</div>
+  
+  </form>
+  </div>
+  
+
 </body>
 
 </html>
