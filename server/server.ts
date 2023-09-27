@@ -1,5 +1,5 @@
 import * as express from 'express';
-
+import {routes} from './routes'
 const app=express() ;
 
 app.use((req,res,next)=>{
@@ -13,10 +13,9 @@ app.use((req,res,next)=>{
         next() ;
     }
 })
+app.use(express.json()) ;
+app.use('/',routes) ;
 
-app.get('/',(req,res)=> {
-    res.send([{message :'hello world'}])
-})
 
 app.listen(4201 ,'127.0.0.1',function(){
     console.log("server listening on port 4201 ") ;

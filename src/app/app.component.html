@@ -2,8 +2,8 @@
 <html lang="en">
    
     <body>
-     <div *ngFor="let message of messages | async">{{message.message}}</div>
-
+     
+        <button (click)="post()" >Create user</button>
         <app-header></app-header>
         <div class="component-container"><router-outlet></router-outlet></div>
         <!-- Footer-->

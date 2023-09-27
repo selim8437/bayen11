@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "ts-node-dev server.ts",
+    "serve1": "tsc server.ts",
+    "serve":"concurrently \"yarn serve1\" \"node server.js\"" ,
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

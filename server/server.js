@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
+var routes_1 = require("./routes");
 var app = express();
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -14,9 +15,8 @@ app.use(function (req, res, next) {
         next();
     }
 });
-app.get('/', function (req, res) {
-    res.send([{ message: 'hello world' ,ms:"ssdsf"}]);
-});
+app.use(express.json());
+app.use('/', routes_1.routes);
 app.listen(4201, '127.0.0.1', function () {
     console.log("server listening on port 4201 ");
 });
