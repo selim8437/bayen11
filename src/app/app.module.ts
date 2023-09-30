@@ -13,6 +13,8 @@ import { ServicesComponent } from './pages/services/services.component';
 import {HttpClientModule} from '@angular/common/http' ;
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    ServicesComponent
+    ServicesComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     HttpClientModule,

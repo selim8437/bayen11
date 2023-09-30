@@ -1,0 +1,10 @@
+<div class="navbar-nav ms-auto">
+    <!-- Username and Password Inputs -->
+    <input class="form-control me-2" type="text" [(ngModel)]="email" aria-label="Email" style="max-width: 150px;" placeholder="Email">
+    <input class="form-control me-2" type="password" [(ngModel)]="password" placeholder="Password" aria-label="Password" style="max-width: 150px;">
+    <button class="btn btn-outline-light" (click)="login()">Login</button>
+    <button class="btn btn-outline-light" (click)="goToSignup()" >Signup</button>
+    <div *ngIf="loginResponse$ | async as loginResponse">
+        <p>{{ loginResponse.message }}</p>
+      </div>
+</div>
