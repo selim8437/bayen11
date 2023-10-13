@@ -1,10 +1,72 @@
-<div class="navbar-nav ms-auto">
-    <!-- Username and Password Inputs -->
-    <input class="form-control me-2" type="text" [(ngModel)]="email" aria-label="Email" style="max-width: 150px;" placeholder="Email">
-    <input class="form-control me-2" type="password" [(ngModel)]="password" placeholder="Password" aria-label="Password" style="max-width: 150px;">
-    <button class="btn btn-outline-light" (click)="login()">Login</button>
-    <button class="btn btn-outline-light" (click)="goToSignup()" >Signup</button>
-    <div *ngIf="loginResponse$ | async as loginResponse">
-        <p>{{ loginResponse.message }}</p>
-      </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Link Bootstrap CSS if not already included -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #212529;
+            min-height: 100vh;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .signup-container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Apply the signup form styles to the login form */
+        .login-container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-12 col-sm-12 login-container">
+                <h2 class="font-weight-light text-center">Login</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control"  id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control"  id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col">
+                            <button class="btn btn-primary btn-block" (click)="login()">Login</button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-primary btn-block" (click)="goToSignup()">Signup</button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+.header {
+    position: relative;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .user-profile {
+    display: inline-block;
+    position: relative; /* Needed for absolute positioning */
+  }
+  
+  .profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Makes it a circular profile picture */
+    cursor: pointer;
+  }
+  
+  .menu-popup {
+    position: absolute;
+    top: 100%;
+    right: 0; /* Adjust this value to control the menu's horizontal position */
+    background-color: #fff;
+    display: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .menu-popup ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-popup li {
+    padding: 10px;
+  }
+  
+  .menu-popup a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+  
+  .menu-popup li:hover {
+    background-color: #f2f2f2;
+  }
+  .error{
+    color: red;
+  }
+  .no_error {
+    
+  }

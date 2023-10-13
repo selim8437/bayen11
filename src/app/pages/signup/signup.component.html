@@ -56,9 +56,14 @@
                     <div class="mb-3">
                         <label for="confirmPassword" class="form-label">Confirm Password</label>
                         <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" name="confirmPassword" required>
+                        <label *ngIf="confirmi" style="color: red;">passwords are not identical</label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                    <button class="btn btn-primary btn-block" (click)="goToLogin()">Login</button>
                 </form>
+                
+                
+
             </div>
         </div>
     </div>
