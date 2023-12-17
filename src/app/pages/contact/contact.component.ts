@@ -16,29 +16,20 @@ export class ContactComponent implements OnInit {
 	constructor(private http:HttpClient){}
 	
   clients: Client[] = [];
-  separateDialCode = false;
-  SearchCountryField = SearchCountryField;
-  CountryISO = CountryISO;
-  PhoneNumberFormat = PhoneNumberFormat;
-  preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
-  phoneForm = new FormGroup({
-	  phone: new FormControl(undefined, [Validators.required])
-  });
+ 
   clientForm = new FormGroup({
     Name: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z]{4,11}")]),
     firstName: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z]{4,11}")]),
     email: new FormControl('', [Validators.required]),
     message: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z]{4,11}")]),
+    phone: new FormControl('', [Validators.required,Validators.minLength(8)])
   });
-  combinedForm = new FormGroup({
-    client1: this.clientForm,
-    client2: this.phoneForm
-  });
+  
  
   ngOnInit(): void {}
 
 	
-   phone= this.phoneForm.controls.phone.value;
+   
     
    
   

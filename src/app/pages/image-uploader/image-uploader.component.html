@@ -1,0 +1,10 @@
+<div>
+    <label for="imageFile">Choose an image:</label>
+    <input type="file" id="imageFile" (change)="onFileSelected($event)" />
+  
+    <label for="outputFolder">Output Folder:</label>
+    <input type="text" id="outputFolder" [(ngModel)]="outputFolder" />
+  
+    <button (click)="uploadImage()">Upload Image</button>
+  </div>
+  

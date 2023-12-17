@@ -1,0 +1,93 @@
+<app-header></app-header>
+<section  *ngIf="!valider && test " id="services" class="services">
+    <div class="container">
+            <br>
+        <h2>Votre panier</h2>
+        <div class="row">
+            <div *ngFor="let i of plats " class="col-md-4">
+                <div class="service-card">
+                    <img class="small-image" src="/assets/plats/{{i.src}}" alt="Service 1">
+                    <h3>{{i.name}}</h3>
+                        <p>{{i.descr }}</p>
+                        <h2><b>{{i.price}} dt</b></h2>
+                        <button class="btn btn-primary" (click)="deleteFromCart(i)" >delete</button>
+
+                </div>
+            </div>
+            <h2><b>Montant a payer</b></h2>
+            
+            <h2><b>{{total}} dt</b></h2>
+
+            <button class="btn btn-primary" (click)="commander()">Valider la commande</button>
+
+            
+            
+           
+        </div>
+    </div>
+</section>
+<section *ngIf="valider"><table class="body-wrap">
+    <tbody><tr>
+        <td></td>
+        <td class="container" width="600">
+            <div class="content">
+                <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                        <td class="content-wrap aligncenter">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tbody><tr>
+                                    <td class="content-block">
+                                        <h2>Thanks for using our app</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        <table class="invoice">
+                                            <tbody><tr>
+                                                <td>{{name}}<br>{{hour}}:{{minute}}, {{day}}, {{month}}, {{year}} </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <table class="invoice-items" cellpadding="0" cellspacing="0">
+                                                        <tbody>
+                                                        <tr *ngFor="let plat of plats2">
+                                                            <td>{{plat.name}}</td>
+                                                            <td class="alignright">{{plat.price}} dt</td>
+                                                        </tr>
+                                                        
+                                                        <tr class="total">
+                                                            <td class="alignright" width="80%">Total</td>
+                                                            <td class="alignright">{{total}} dt</td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                            <h3>We will call you in a moment to confirm the order ! </h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        Company Selim&Jihed. Oued el khatf, kelibia
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+                <div class="footer">
+                    <table width="100%">
+                        <tbody><tr>
+                            <td class="aligncenter content-block">Questions? Email <a href="mailto:">selim.smaali654@gmail.com</a></td>
+                        </tr>
+                    </tbody></table>
+                </div></div>
+        </td>
+        <td></td>
+    </tr>
+</tbody></table></section>
+<app-footer></app-footer>

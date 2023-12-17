@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,9 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
+  formulairi =false ;
   signupForm: FormGroup;
   confirmi=false ;
-  constructor(private router: Router,private fb: FormBuilder, private http: HttpClient) {
+  constructor(private router: Router,private fb: FormBuilder, private http: HttpClient,private dataSharingService : DataSharingService) {
     this.signupForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -25,10 +27,12 @@ export class SignupComponent {
     if (this.signupForm.valid ) {
       const formData = this.signupForm.value;
       if(formData.password===formData.confirmPassword){
-        const serverUrl = 'http://localhost:3000';
+        const serverUrl = 'https://localhost:3000';
         this.http.post<any>(`${serverUrl}/signup`, formData).subscribe(
           (response) => {
             alert('Account Created successfully:');
+            this.goToHome();
+            this.dataSharingService.test=true ;
           // Handle success (e.g., show a success message)
           },
           (error) => {
@@ -40,7 +44,7 @@ export class SignupComponent {
         this.confirmi=true ;
       }
     }else {
-      console.log('Form is invalid. Please correct errors.');
+      this.formulairi=true;
     }
   }
    isValidPassword(password: string): boolean {
@@ -69,6 +73,9 @@ export class SignupComponent {
     return true;
   }
   goToLogin(){
+    this.router.navigate(['/Login']) ;
+  }
+  goToHome(){
     this.router.navigate(['/Home']) ;
   }
 }

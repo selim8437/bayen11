@@ -1,52 +1,29 @@
-<!-- Import the necessary CSS and JavaScript libraries for ngx-intl-tel-input -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<link rel="stylesheet" >
 
 <app-header></app-header>
 <div class="container">
-  <h1>Contact Us</h1>
-  <p>Get in Touch with Bayene</p>
-  <h2>Contact Information</h2>
-  <p>If you have any questions or require further information, please don't hesitate to contact us:</p>
+  <h1>Nous Contacter</h1>
+  <p>Prenez contact avec KOUL</p>
+  <h2>Coordonnées</h2>
+  <p>Si vous avez des questions ou avez besoin d'informations supplémentaires, n'hésitez pas à nous contacter :</p>
   <address>
-    <strong>Bayene</strong><br>
-    123 Tunis Street<br>
-    Tunis, Tunisia<br>
-    Phone: +216 123456789<br>
-    Email: info@transitaire-tunisia.com<br>
+    <strong>KOUL</strong><br>
+    123 OUED EL KHATF<br>
+    Nabeul, Tunisie<br>
+    Téléphone : +216 51922108<br>
+    Email : info@koul-tunisia.com<br>
   </address>
-  <h2>Contact Form</h2>
-  <p>Alternatively, you can send us a message using the contact form below:</p>
+  <h2>Formulaire de Contact</h2>
+  <p>Vous pouvez également nous envoyer un message en utilisant le formulaire de contact ci-dessous :</p>
+  
 
-  <!-- Phone Number Form using ngx-intl-tel-input -->
-  <form [formGroup]="phoneForm">
-    <div class="wrapper">
-      <ngx-intl-tel-input
-        [cssClass]="'custom'"
-        [preferredCountries]="preferredCountries"
-        [enableAutoCountrySelect]="true"
-        [enablePlaceholder]="true"
-        [searchCountryFlag]="true"
-        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-        [selectFirstCountry]="false"
-        [selectedCountryISO]="CountryISO.Tunisia"
-        [maxLength]="15"
-        [phoneValidation]="true"
-        [separateDialCode]="separateDialCode"
-        [numberFormat]="PhoneNumberFormat.National"
-        name="phone"
-        formControlName="phone"
-      >
-      </ngx-intl-tel-input>
-    </div>
-  </form>
+  
 
-  <!-- Client Information Form -->
   <form [formGroup]="clientForm" >
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="email" formControlName="email" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <input type="email" class="form-control"  formControlName="email" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre adresse e-mail avec quelqu'un d'autre.</small>
     </div>
     <div class="form-row">
       <div class="col">
@@ -58,6 +35,9 @@
       <div class="col">
         <textarea class="form-control" formControlName="message" placeholder="Message"></textarea>
       </div>
+    </div>
+    <div class="col">
+      <input type="phone" class="form-control" formControlName="phone" placeholder="Phone number">
     </div>
     <button type="submit" class="btn btn-dark" [disabled]="!clientForm.valid">Submit</button>
     

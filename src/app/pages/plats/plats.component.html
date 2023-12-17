@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+
+
+
+
+<section *ngIf="abc" id="services" class="services">
+    <div class="container">
+        <div class="centered-div"> 
+                   <input id="search" type="text" [(ngModel)]="searchTerm"><button class="btn btn-primary" (click)="searchPlatByName()"><i class="fas fa-search"></i></button>
+                   <button class="btn btn-dark" (click)="onAll()" ><i class="fas fa-bars"></i></button>
+                </div>
+            <br>
+        <h2>Nos Plats</h2>
+        <div class="row">
+            <div *ngFor="let i of plats" class="col-md-4">
+                <div class="service-card">
+                    <img src="/assets/plats/{{i.src}}" alt="Service 1">
+                    <h3>{{i.name}}</h3>
+                        <p>{{i.descr }}</p>
+                        <h2><b>{{i.price}} dt</b></h2>
+                        <button class="btn btn-primary" (click)="onAdd(i)" >add  <i class="fas fa-shopping-cart"></i></button>
+                        
+
+                </div>
+            </div>
+            
+            
+           
+        </div>
+    </div>
+</section>
+
+
+
+
+<app-footer></app-footer>

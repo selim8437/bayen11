@@ -1,0 +1,100 @@
+<app-admin-header></app-admin-header>
+<body>
+    
+    <header>
+        <h1>Gestion des Plats</h1>
+    </header>
+<div class="order-management">
+<div class="smaller-header">
+    <h2>Consulter les Plats </h2>
+</div>
+<table class="pricing-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom </th>
+            <th>description </th>
+            <th>source</th>
+            <th>prix</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr  *ngFor="let plat of Plats; let i = index">
+                
+                <td>{{ plat.id_plat }}</td>
+                <td>{{ plat.name }}</td>
+                <td>{{plat.descr}}</td>
+                <td>{{ plat.src }}</td>
+                <td>{{ plat.price }}</td>
+                <td class="special-row">
+                    <button  class="btn btn-primary btn-block" (click)="editPlat(plat)">Edit</button>
+                </td>
+                <td> 
+                    <button  class="btn btn-danger" (click)="delitePlat(plat)">Delete</button>
+                </td>
+            </tr>
+    </tbody>
+</table>
+
+<br>
+<br>
+<div class="smaller-header">
+    <h2>modifier Plat</h2>
+</div>
+    <form *ngIf="selectedPlat" (submit)="savePlat()">
+        <div class="form-field">
+            <label for="orderId">ID:</label>
+            <input type="text" id="orderId" name="orderId" [(ngModel)]="selectedPlat.plat_id" disabled>
+        </div>
+
+        <div class="form-field">
+            <label for="customerName">Nom:</label>
+            <input type="text" id="customerName" name="customerName" [(ngModel)]="selectedPlat.name">
+        </div>
+        <div class="form-field">
+            <label for="serviceName">Description :</label>
+            <input id="serviceName" name="serviceName" [(ngModel)]="selectedPlat.descr">    
+        </div>
+        <div class="form-field">
+            <label for="orderStatus">Source :</label>
+            <input type="text" id="orderStatus" name="orderStatus" [(ngModel)]="selectedPlat.src">
+        </div>
+        <div class="form-field">
+            <label for="orderPrice">Prix:</label>
+            <input type="text" id="orderPrice" name="orderPrice" [(ngModel)]="selectedPlat.price">
+        </div>
+        <button class="btn btn-primary btn-block" (click)="savePlat()">Enregistrer</button>
+    </form>
+
+<br>
+<br>
+<div class="smaller-header">
+    <h2>Creer Plat</h2>
+</div>
+<form (submit)="createPlat()">
+    <div class="form-field">
+        <label for="newUserName">Nom :</label>
+        <input type="text" id="newUserName" name="newCustomerName" [(ngModel)]="newPlat.name">
+    </div>
+
+    <div class="form-field">
+        <label for="Email">Description:</label>
+        <input type="email" id="Email" name="Email" [(ngModel)]="newPlat.descr">
+    </div>
+
+    <div class="form-field">
+        <label for="newUserPhone">source:</label>
+        <input type="text" id="newOrderStatus" name="newOrderStatus" [(ngModel)]="newPlat.src">
+    </div> 
+    <div class="form-field">
+        <label for="newOrderStatus">prix:</label>
+        <input type="text" id="newOrderStatus" name="newOrderStatus" [(ngModel)]="newPlat.price">
+    </div>
+
+    <button class="btn btn-primary btn-block" type="submit">Creer</button>
+</form>
+</div>
+</body>

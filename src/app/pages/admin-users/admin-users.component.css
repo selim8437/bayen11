@@ -1,0 +1,89 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+td.special-row tr.large-cell {
+    height: 50px; /* Adjust the value to your desired height */
+  }
+
+/* Header styles */
+header {
+    background-color: #212529;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+/* Order management container styles */
+.order-management {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light grey background */
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Pricing table styles */
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.pricing-table th,
+.pricing-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.pricing-table th {
+    background-color: #f5f5f5;
+}
+
+.pricing-table td:first-child {
+    text-align: center; /* Center align the first column */
+}
+
+/* Call to action button styles */
+.cta-button {
+    display: block;
+    text-align: center;
+    background-color: #212529;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.smaller-header {
+  background-color: #343a40; /* Dark gray background */
+  color: #fff;
+  text-align: center;
+  padding: 10px; /* Smaller padding */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    .order-management {
+        padding: 10px;
+    }
+
+    .cta-button {
+        margin-top: 10px;
+    }
+}

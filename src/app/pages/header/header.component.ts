@@ -2,11 +2,15 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { DataSharingService } from 'src/app/data-sharing.service';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
+import { ChangeDetectionStrategy } from '@angular/core';
+import { PanierService } from 'src/app/services/panier.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class HeaderComponent implements OnInit{
   email: string = '';
@@ -16,7 +20,15 @@ export class HeaderComponent implements OnInit{
   message :boolean =false ;
   abc:boolean=false ;
   name :string ="";
-  constructor(private http: HttpClient, private router: Router,private dataSharingService: DataSharingService) {}
+  showMenu: boolean = false;
+  panierCount: number =0 ;
+
+  constructor(private http: HttpClient, private router: Router,private dataSharingService: DataSharingService,private panierService: PanierService) {
+  }
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+  }
   isValidPassword(password: string): boolean {
     const sqlInjectionPatterns = [
       /SELECT\s+/i,
@@ -54,8 +66,7 @@ export class HeaderComponent implements OnInit{
           console.log(response.messages);
           this.abc=true;
           this.name=response.messages ;
-          this.storageSet() ;
-          this.router.navigate(['/Home']);
+          this.router.navigate(['/Tarrification']);
          
         }
       },
@@ -78,33 +89,34 @@ export class HeaderComponent implements OnInit{
   goToSignup() {
     this.router.navigate(['/SignUp']);
   }
-  storageSet(){
-    const data = { abc: this.abc, name: this.name };
-    this.http.post<{ message: string,messages :string }>('http://localhost:3000/storage', data).subscribe({})
+  goToPanier(){
+    this.router.navigate(['/Panier']);
 
   }
-  storageGet(){
-    this.http.post<{ name: string,abc :boolean }>('http://localhost:3000/storage',"").subscribe({
-      next: (response) => {
-        this.name=response.name ;
-        this.abc=response.abc ;
-      },error:(error) => {
-        console.error('HTTP error:', error);
-      }
-    })
-  }
+  
+  
   ngOnInit(): void {
-    this.storageGet() ;
+    this.abc=this.dataSharingService.test ;
+    this.name=this.dataSharingService.name ;
+    this.panierService.cartCount$.subscribe((count) => {
+      this.panierCount = count;
+    });
   }
   
 
-
+  
+    
   
   
  
 
   goToLogin(){
     this.router.navigate(['/Login'])
+  }
+  deconnecter(){
+    this.abc=false ;
+    this.router.navigate(['/Home']) ;
+    this.dataSharingService.test=this.abc ;
   }
    isValidEmail(email: string): boolean {
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;

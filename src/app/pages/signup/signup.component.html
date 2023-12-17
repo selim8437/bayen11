@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup Page</title>
-    <!-- Link Bootstrap CSS if not already included -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         html, body {
@@ -36,29 +35,31 @@
         <div class="row justify-content-center">
             <div class="col-lg-12 col-md-12 col-sm-12 signup-container">
                 <h2 class="font-weight-light text-center">Sign Up</h2>
-                <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="signupForm" >
                     <div class="mb-3">
-                        <label for="fullName" class="form-label">Full Name</label>
+                        <label for="fullName" class="form-label">Nom complet</label>
                         <input type="text" class="form-control"formControlName="fullName" id="fullName" name="fullName" required>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email Address</label>
+                        <label for="email" class="form-label">Address Email</label>
                         <input type="email" class="form-control" formControlName="email" id="email" name="email" required>
                     </div>
                     <div class="mb-3">
-                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                        <label for="phoneNumber" class="form-label">Numero de telephone</label>
                         <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber" name="phoneNumber" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">Mot de passe</label>
                         <input type="password" class="form-control" id="password" formControlName="password" name="password" required>
                     </div>
                     <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <label for="confirmPassword" class="form-label">Confirmer votre mot de passe</label>
                         <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" name="confirmPassword" required>
-                        <label *ngIf="confirmi" style="color: red;">passwords are not identical</label>
+                        <label *ngIf="confirmi" style="color: red;">Les mots de passe ne sont pas identiques</label>
+                        <label *ngIf="formulairi" style="color: red;">Phone number or password invalide</label>
+
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                    <button type="submit" class="btn btn-primary btn-block" (click)="onSubmit()">Sign Up</button>
                     <button class="btn btn-primary btn-block" (click)="goToLogin()">Login</button>
                 </form>
                 

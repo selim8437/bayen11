@@ -1,0 +1,204 @@
+/* Reset default styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    transition: background-color 0.5s;
+}
+.centered-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+}
+input {
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 200px;
+    /* Add more styles as needed */
+  }
+
+  /* Additional styling for better visibility when focused */
+  input:focus {
+    border-color: #007bff; /* Change color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box shadow on focus */
+  }
+/* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+}
+
+
+.hero {
+    position: relative;
+    background: url('/assets/img1.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 290px 0;
+    text-align: center;
+    color: #fff;
+}
+.hero .container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.text{
+    position: absolute;
+    top: 25%;
+    color: #fff;
+    padding: 20px;
+}
+.text h4{
+    font-size: 26px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.hero .container button {
+    width: 150%; /* Adjust width as needed */
+    max-width: 3000px; /* Optional: Set maximum width */
+}
+
+/* Background Overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Text Styles */
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s both;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+
+.hero p {
+    font-size: 18px;
+    animation: fadeInUp 1s 0.5s both;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+
+.hero a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.hero a:hover {
+    background-color: #0056b3;
+}
+
+
+/* Call to Action (CTA) Section Styles */
+.cta {
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.cta h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s both;
+}
+
+.cta a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta a:hover {
+    background-color: #e5e5e5;
+}
+
+/* Services Section Styles */
+.services h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+    animation: fadeIn 1s both;
+}
+
+/* Service Card Styles */
+.service-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.service-card p {
+    font-size: 16px;
+}
+.section-a { 
+    text-align: center; /* Center the button horizontally */
+}
+
+/* Adjust the button's styles */
+.section-a button {
+    margin: 0 auto; /* Center the button horizontally */
+    display: block; /* Ensure it spans the full width */
+}

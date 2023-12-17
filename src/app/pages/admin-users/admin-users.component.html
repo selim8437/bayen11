@@ -1,0 +1,98 @@
+<app-admin-header></app-admin-header>
+<body>
+    
+    <header>
+        <h1>Gestion des Utilisateurs</h1>
+    </header>
+<div class="order-management">
+<div class="smaller-header">
+    <h2>Consulter les Utilisateurs </h2>
+</div>
+<table class="pricing-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom </th>
+            <th>Email </th>
+            <th>Telephone</th>
+            <th>Mot de passe </th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr  *ngFor="let user of users; let i = index">
+                
+                <td>{{ user.client_id }}</td>
+                <td>{{ user.full_name }}</td>
+                <td>{{user.email}}</td>
+                <td>{{ user.phone_number }}</td>
+                <td>{{ user.password }}</td>
+                <td class="special-row">
+                    <button  class="btn btn-primary btn-block" (click)="editUser(user)">Edit</button>
+                </td>
+                <td> 
+                    <button  class="btn btn-danger" (click)="deliteUser(user)">Delete</button>
+                </td>
+            </tr>
+    </tbody>
+</table>
+
+<br>
+<br>
+<div class="smaller-header">
+    <h2>modifier Utilisateur</h2>
+</div>
+    <form *ngIf="selectedUser" (submit)="saveUser()">
+        <div class="form-field">
+            <label for="orderId">ID:</label>
+            <input type="text" id="orderId" name="orderId" [(ngModel)]="selectedUser.id" disabled>
+        </div>
+
+        <div class="form-field">
+            <label for="customerName">Nom:</label>
+            <input type="text" id="customerName" name="customerName" [(ngModel)]="selectedUser.full_name">
+        </div>
+        <div class="form-field">
+            <label for="serviceName">Email:</label>
+            <input id="serviceName" name="serviceName" [(ngModel)]="selectedUser.email">    
+        </div>
+        <div class="form-field">
+            <label for="orderStatus">Telephone:</label>
+            <input type="text" id="orderStatus" name="orderStatus" [(ngModel)]="selectedUser.phone_number">
+        </div>
+        <div class="form-field">
+            <label for="orderPrice">Mot de passe:</label>
+            <input type="text" id="orderPrice" name="orderPrice" [(ngModel)]="selectedUser.password">
+        </div>
+        <button class="btn btn-primary btn-block" (click)="saveUser()">Enregistrer</button>
+    </form>
+
+<br>
+<br>
+<div class="smaller-header">
+    <h2>Creer Utilisateur</h2>
+</div>
+<form (submit)="createUser()">
+    <div class="form-field">
+        <label for="newUserName">Nom complet:</label>
+        <input type="text" id="newUserName" name="newCustomerName" [(ngModel)]="newUser.full_name">
+    </div>
+
+    <div class="form-field">
+        <label for="Email">Email:</label>
+        <input type="email" id="Email" name="Email" [(ngModel)]="newUser.email">
+    </div>
+
+    <div class="form-field">
+        <label for="newUserPhone">Telephone:</label>
+        <input type="text" id="newOrderStatus" name="newOrderStatus" [(ngModel)]="newUser.phone_number">
+    </div>
+    <div class="form-field">
+        <label for="newOrderStatus">Mot de passe :</label>
+        <input type="text" id="newOrderStatus" name="newOrderStatus" [(ngModel)]="newUser.password">
+    </div>
+
+    <button class="btn btn-primary btn-block" type="submit">Creer</button>
+</form>
+</div>
+</body>
